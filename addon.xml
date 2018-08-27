@@ -19,8 +19,8 @@
     <language>en fr it</language>
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
     <forum>http://forum.kodi.tv/showthread.php?tid=199604</forum>
-    <website>https://github.com/Bensmens/script.tvtime</website>
-    <source>https://github.com/Bensmens/script.tvtime.git</source>
+    <website>https://github.com/bensmens/script.tvtime</website>
+    <source>https://github.com/bensmens/script.tvtime.git</source>
     <email>bensmens[AT]users[DOT]noreply[DOT]github[DOT]com</email>
   </extension>
 </addon>
