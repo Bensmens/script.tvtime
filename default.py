@@ -115,7 +115,7 @@ class Monitor(xbmc.Monitor):
                     if len(item['showtitle']) > 0 and item['season'] > 0 and item['episode'] > 0 and item['episode_id'] > 0:                   
                         player.filename = '%s.S%.2dE%.2d' % (formatName(item['showtitle']), float(item['season']), float(item['episode']))
                         log('tvshowtitle=%s' % player.filename)
-                        player.episode = FindEpisode(player.token, item['episode_id'])
+                        player.episode = FindEpisode(player.token, 0, player.filename)
                         log('episode.is_found=%s' % player.episode.is_found)
                         if player.episode.is_found:
                             if player.notifications == 'true':                        
@@ -208,9 +208,10 @@ class Monitor(xbmc.Monitor):
                 if len(item['showtitle']) > 0 and item['season'] > 0 and item['episode'] > 0 and item['episode_id'] > 0:
                     self.filename = '%s.S%.2dE%.2d' % (formatName(item['showtitle']), float(item['season']), float(item['episode']))
                     log('tvshowtitle=%s' % self.filename)
-                    self.episode = FindEpisode(player.token, item['episode_id'])
+                    self.episode = FindEpisode(player.token, 0, self.filename)
                     log('episode.is_found=%s' % self.episode.is_found)
                     if self.episode.is_found:
+                        item['episode_id'] = self.episode.id
                         if playcount is 1:
                             log('MarkAsWatched(*, %s, %s, %s)' % (self.filename, player.facebook, player.twitter))
                             checkin = MarkAsWatched(player.token, item['episode_id'], player.facebook, player.twitter)
@@ -375,3 +376,4 @@ if ( __name__ == "__main__" ):
     player._monitor = None
     log("sys.exit(0)")
     sys.exit(0)
+    
